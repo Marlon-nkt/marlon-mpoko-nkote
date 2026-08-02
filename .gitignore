@@ -1,10 +1,15 @@
 # Dossiers sources — les fichiers de travail d'origine (73 Mo).
 # Le site n'en a pas besoin : tout ce qu'il affiche est déjà dans assets/.
-Impact/
-Emmaus/
-NOUS/
-ecosms/
-_video-originaux/
+#
+# La barre oblique initiale est indispensable. Sans elle, le motif vaut
+# à n'importe quelle profondeur — et comme Git est réglé en
+# core.ignorecase sous Windows, « Impact/ » attrapait aussi
+# « assets/img/impact/ ». Résultat : 46 images du site jamais envoyées.
+/Impact/
+/Emmaus/
+/NOUS/
+/ecosms/
+/_video-originaux/
 
 # Fichiers qui n'ont rien à faire dans un site
 Git-*.exe
