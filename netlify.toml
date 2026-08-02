@@ -1,0 +1,52 @@
+# =========================================================
+#  Configuration Netlify — site statique, aucune compilation.
+# =========================================================
+
+[build]
+  publish = "."
+  command = ""
+
+# ---------------------------------------------------------
+#  Cache
+#  Les pages doivent toujours être revalidées, sinon une
+#  correction publiée reste invisible pour qui a déjà visité.
+#  Les médias, eux, ne changent jamais sans changer de nom :
+#  on les met en cache pour un an, ce qui rend la deuxième
+#  visite immédiate.
+# ---------------------------------------------------------
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/assets/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/video/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Les feuilles de style et les scripts changent, eux, à chaque
+# correction : une heure de cache, puis revalidation.
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+# ---------------------------------------------------------
+#  Sécurité — en-têtes de base, sans rien casser du site.
+# ---------------------------------------------------------
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"
