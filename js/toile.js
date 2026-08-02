@@ -115,10 +115,24 @@
     '  float bord = dot(p, p);',
     '  vec2 ecart = normalize(p + 1e-5) * (0.005 + 0.019 * bord);',
 
+    /* La dispersion coûte trois évaluations du champ par pixel, soit
+       trois fois tout le bruit. C'est de loin le poste le plus lourd
+       du shader. En mode allégé on n'en fait qu'une et on décale les
+       canaux après coup : l'écart se voit à peine, le coût est divisé
+       par trois. Le mode est choisi à l'exécution d'après les images
+       réellement rendues (voir plus bas). */
     '  float vR, vV, vB;',
-    '  float fR = champ(base + ecart, t, vR);',
-    '  float fV = champ(base,         t, vV);',
-    '  float fB = champ(base - ecart, t, vB);',
+    '  float fR, fV, fB;',
+    '  #ifdef LEGER',
+    '    fV = champ(base, t, vV);',
+    '    float d = (ecart.x + ecart.y) * 6.0;',
+    '    fR = fV + d; fB = fV - d;',
+    '    vR = vV; vB = vV;',
+    '  #else',
+    '    fR = champ(base + ecart, t, vR);',
+    '    fV = champ(base,         t, vV);',
+    '    fB = champ(base - ecart, t, vB);',
+    '  #endif',
 
     '  vec3 f = vec3(fR, fV, fB);',
     '  vec3 veine = vec3(vR, vV, vB);',
@@ -180,32 +194,45 @@
     return s;
   }
 
-  var vs = compiler(gl.VERTEX_SHADER, VERT);
-  var fs = compiler(gl.FRAGMENT_SHADER, FRAG);
-  if (!vs || !fs) return;
-
-  var prog = gl.createProgram();
-  gl.attachShader(prog, vs);
-  gl.attachShader(prog, fs);
-  gl.linkProgram(prog);
-  if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return;
-  gl.useProgram(prog);
+  var prog = null, uRes, uTime, uScroll, uChaud, uFroid, uEclat;
 
   /* un seul triangle qui couvre l'écran : moins de sommets, pas de
      couture au milieu du quad */
   var buf = gl.createBuffer();
   gl.bindBuffer(gl.ARRAY_BUFFER, buf);
   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
-  var aPos = gl.getAttribLocation(prog, 'aPos');
-  gl.enableVertexAttribArray(aPos);
-  gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
 
-  var uRes    = gl.getUniformLocation(prog, 'uRes');
-  var uTime   = gl.getUniformLocation(prog, 'uTime');
-  var uScroll = gl.getUniformLocation(prog, 'uScroll');
-  var uChaud  = gl.getUniformLocation(prog, 'uChaud');
-  var uFroid  = gl.getUniformLocation(prog, 'uFroid');
-  var uEclat  = gl.getUniformLocation(prog, 'uEclat');
+  function construire(leger) {
+    var vs = compiler(gl.VERTEX_SHADER, VERT);
+    var fs = compiler(gl.FRAGMENT_SHADER, (leger ? '#define LEGER 1\n' : '') + FRAG);
+    if (!vs || !fs) return false;
+
+    var p = gl.createProgram();
+    gl.attachShader(p, vs);
+    gl.attachShader(p, fs);
+    gl.linkProgram(p);
+    gl.deleteShader(vs); gl.deleteShader(fs);
+    if (!gl.getProgramParameter(p, gl.LINK_STATUS)) { gl.deleteProgram(p); return false; }
+
+    if (prog) gl.deleteProgram(prog);
+    prog = p;
+    gl.useProgram(prog);
+
+    var aPos = gl.getAttribLocation(prog, 'aPos');
+    gl.enableVertexAttribArray(aPos);
+    gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
+
+    uRes    = gl.getUniformLocation(prog, 'uRes');
+    uTime   = gl.getUniformLocation(prog, 'uTime');
+    uScroll = gl.getUniformLocation(prog, 'uScroll');
+    uChaud  = gl.getUniformLocation(prog, 'uChaud');
+    uFroid  = gl.getUniformLocation(prog, 'uFroid');
+    uEclat  = gl.getUniformLocation(prog, 'uEclat');
+    gl.uniform2f(uRes, toile.width || 1, toile.height || 1);
+    return true;
+  }
+
+  if (!construire(false)) return;
 
   /* ---------- La toile prend la place des nappes CSS ---------- */
   decor.insertBefore(toile, decor.firstChild);
@@ -272,10 +299,103 @@
     gl.uniform2f(uRes, w, h);
   }
 
+  /* =========================================================
+     QUALITÉ ADAPTATIVE
+     Le coût du shader dépend entièrement de la carte graphique,
+     et rien ne permet de la connaître à l'avance. On mesure donc
+     les images réellement rendues, et on redescend d'un cran tant
+     que la machine ne suit pas : d'abord la dispersion chromatique
+     (trois évaluations du champ par pixel, le poste le plus lourd),
+     puis la définition, puis la cadence.
+     ========================================================= */
+  var CRANS = [
+    { nom: 'plein',   leger: false, budget: 420000, fps: 32 },
+    { nom: 'allégé',  leger: true,  budget: 420000, fps: 30 },
+    { nom: 'réduit',  leger: true,  budget: 220000, fps: 26 },
+    { nom: 'minimal', leger: true,  budget: 110000, fps: 22 }
+  ];
+  var cran = 0;
+  var echantillons = [];
+
+  function descendre() {
+    if (cran >= CRANS.length - 1) return false;
+    cran++;
+    var c = CRANS[cran];
+    BUDGET = c.budget;
+    intervalle = 1000 / c.fps;
+    if (c.leger !== CRANS[cran - 1].leger) construire(c.leger);
+    largeur = hauteur = 0;      /* force le recalcul des dimensions */
+    redimensionner();
+    echantillons.length = 0;
+    /* Au dernier cran, ce n'est plus le shader qui coûte : on coupe
+       aussi les effets CSS chers (flou d'arrière-plan, grain animé).
+       Voir .allege dans style.css. */
+    if (cran >= CRANS.length - 1) document.documentElement.classList.add('allege');
+    return true;
+  }
+
+  /* On juge sur le temps écoulé entre deux images peintes, rapporté
+     à la cadence visée. Trente échantillons suffisent à distinguer
+     une machine qui peine d'un simple à-coup passager. */
+  function jauger(ecart) {
+    if (cran >= CRANS.length - 1) return;
+    echantillons.push(ecart);
+    if (echantillons.length < 30) return;
+    echantillons.sort(function (a, b) { return a - b; });
+    var median = echantillons[15];
+    echantillons.length = 0;
+    /* 1,6 × la cadence visée : on tolère un peu de retard avant de
+       dégrader, pour ne pas réagir à un pic isolé. */
+    if (median > intervalle * 1.6) descendre();
+  }
+
   /* ---------- Boucle ---------- */
   var depart = performance.now();
   var dernier = 0;
   var intervalle = 1000 / FPS;
+
+  /* Forçage manuel du cran : ?fond=allege|reduit|minimal dans l'URL,
+     ou localStorage.fond pour que le choix survive à la navigation.
+     Placé après l'initialisation de la cadence, sinon celle-ci
+     écraserait le cran choisi.
+
+     Sert à deux choses : vérifier chaque palier sans avoir à trouver
+     une machine lente, et donner une échappatoire à qui trouve le
+     fond trop lourd sans attendre que la mesure s'en aperçoive. */
+  function forcerCran(v) {
+    if (!v) return false;
+    v = String(v).toLowerCase().replace(/[éè]/g, 'e');
+    for (var i = 1; i < CRANS.length; i++) {
+      if (CRANS[i].nom.replace(/[éè]/g, 'e').indexOf(v) === 0) {
+        while (cran < i) descendre();
+        return true;
+      }
+    }
+    return false;
+  }
+
+  (function () {
+    var u = (location.search.match(/[?&]fond=([^&]*)/) || [])[1];
+    if (u && forcerCran(decodeURIComponent(u))) {
+      try { localStorage.setItem('fond', decodeURIComponent(u)); } catch (e) {}
+      return;
+    }
+    try { forcerCran(localStorage.getItem('fond')); } catch (e) {}
+  })();
+
+  /* Permet aussi de piloter le fond depuis la console :
+     portfom.fond('minimal')  —  portfom.fond(null) pour revenir.
+     portfom.etat() renvoie le cran courant, utile pour diagnostiquer. */
+  window.portfom = window.portfom || {};
+  window.portfom.fond = function (v) {
+    try { v ? localStorage.setItem('fond', v) : localStorage.removeItem('fond'); } catch (e) {}
+    location.reload();
+  };
+  window.portfom.etat = function () {
+    var c = CRANS[cran];
+    return { cran: c.nom, shaderAllege: c.leger, pixels: largeur * hauteur,
+             cadence: Math.round(1000 / intervalle) + ' i/s', cssAllege: document.documentElement.classList.contains('allege') };
+  };
   var enCours = false;
   var defile = 0;
 
@@ -283,6 +403,7 @@
     if (!enCours) return;
     requestAnimationFrame(peindre);
     if (maintenant - dernier < intervalle) return;
+    if (dernier) jauger(maintenant - dernier);
     dernier = maintenant;
 
     relireChromie();

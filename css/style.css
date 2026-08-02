@@ -91,7 +91,10 @@ figure{ margin: 0; }
    ========================================================= */
 .grain{
   position: fixed;
-  inset: -50%;
+  /* -10 % et non -50 % : l'ancien débord faisait peindre quatre fois
+     la surface de l'écran à chaque image pour un déplacement de 3 %.
+     Cette réserve suffit largement à masquer les bords. */
+  inset: -10%;
   z-index: 60;
   pointer-events: none;
   opacity: .05;
@@ -101,13 +104,30 @@ figure{ margin: 0; }
 }
 
 @keyframes grain-shift{
-  0%   { transform: translate(0, 0); }
-  20%  { transform: translate(-3%, 2%); }
-  40%  { transform: translate(2%, -3%); }
-  60%  { transform: translate(-2%, -2%); }
-  80%  { transform: translate(3%, 1%); }
-  100% { transform: translate(0, 0); }
+  0%   { transform: translate3d(0, 0, 0); }
+  20%  { transform: translate3d(-3%, 2%, 0); }
+  40%  { transform: translate3d(2%, -3%, 0); }
+  60%  { transform: translate3d(-2%, -2%, 0); }
+  80%  { transform: translate3d(3%, 1%, 0); }
+  100% { transform: translate3d(0, 0, 0); }
 }
+
+/* =========================================================
+   MODE ALLÉGÉ — posé par js/toile.js quand la machine ne suit
+   pas, après plusieurs paliers de dégradation du fond. On coupe
+   alors ce qui coûte le plus cher au compositeur : les flous
+   d'arrière-plan, recalculés à chaque image de défilement, et
+   le grain animé. Le site garde son dessin, il perd sa texture.
+   ========================================================= */
+.allege .grain{ animation: none; opacity: .04; }
+.allege .site-header::before,
+.allege .sommaire,
+.allege .hero__dispo{
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.allege .site-header::before{ background: rgba(4,4,7,.88); }
+.allege .sommaire{ background: rgba(4,4,7,.92); }
 
 /* =========================================================
    ATMOSPHÈRE CINÉMATIQUE — composant partagé
