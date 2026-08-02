@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CRÉATIONS | Portfom</title>
+<meta name="description" content="Les créations de Marlon Mpoko Nkote — graphisme, animations, logos, 3D et vidéos.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Poppins:wght@200;300;400;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="cinema">
+
+<a class="skip-link" href="#main">Aller au contenu principal</a>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="cine" aria-hidden="true">
+  <div class="cine__plan"></div>
+  <div class="cine__plan"></div>
+  <div class="cine__brume"></div>
+  <div class="cine__halation"></div>
+  <div class="cine__scrim"></div>
+  <div class="cine__vignette"></div>
+</div>
+<div class="progress" aria-hidden="true"><span class="progress__bar"></span></div>
+
+<header class="site-header">
+  <nav class="nav" aria-label="Navigation principale">
+    <a class="nav__brand" href="index.html">Accueil</a>
+    <ul class="nav__list">
+      <li><a href="audiovisuel.html">Audiovisuel</a></li>
+      <li><a href="projets.html">Projets</a></li>
+      <li><a href="creations.html" aria-current="page">Créations</a></li>
+      <li><a href="stage.html">Stage</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+
+  <section class="page-hero" data-plan="assets/img/cine/lumiere-emeraude.webp" data-froid="#004444" data-teinte="#228866">
+    <div class="sec-meta reveal">
+      <span class="sec-meta__num">002</span>
+      <span class="sec-meta__cat">Créations</span>
+    </div>
+    <h1 class="page-hero__title reveal reveal--wipe">MES CRÉATIONS</h1>
+    <hr class="rule reveal reveal--rule">
+  </section>
+
+  <div class="tiles">
+
+    <a class="tile reveal reveal--up" href="creation-graphisme.html">
+      <img src="assets/img/crea-graphisme.jpg" alt="Créations graphiques" loading="lazy">
+      <span class="tile__label">GRAPHISME</span>
+    </a>
+
+    <a class="tile reveal reveal--up" data-delay="1" href="creation-animations.html">
+      <img src="assets/img/crea-animations.jpg" alt="Animations" loading="lazy">
+      <span class="tile__label">ANIMATIONS</span>
+    </a>
+
+    <a class="tile reveal reveal--up" href="creation-logo.html">
+      <img src="assets/img/crea-logo.avif" alt="Création de logos" loading="lazy">
+      <span class="tile__label">LOGO</span>
+    </a>
+
+    <a class="tile reveal reveal--up" data-delay="1" href="creation-3d.html">
+      <img src="assets/img/crea-3d.png" alt="Créations 3D" loading="lazy">
+      <span class="tile__label">3D</span>
+    </a>
+
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <p class="site-footer__name">MPOKO NKOTE</p>
+  <div class="site-footer__bar">
+    <span>@ MPOKO NKOTE 2026 DESIGN</span>
+    <a href="https://www.linkedin.com/in/marlon-mpoko-nkote-088b88265/" target="_blank" rel="noopener">LINKEDIN</a>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/ambiance.js"></script>
+<script src="js/toile.js"></script>
+</body>
+</html>

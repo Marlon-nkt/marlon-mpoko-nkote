@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ANIMATIONS | Portfom</title>
+<meta name="description" content="Animations motion design de Marlon Mpoko Nkote réalisées sur After Effects et Illustrator.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Poppins:wght@200;300;400;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/animations.css">
+</head>
+<body class="anim cinema">
+
+<a class="skip-link" href="#main">Aller au contenu principal</a>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="cine" aria-hidden="true">
+  <div class="cine__plan"></div>
+  <div class="cine__plan"></div>
+  <div class="cine__brume"></div>
+  <div class="cine__halation"></div>
+  <div class="cine__scrim"></div>
+  <div class="cine__vignette"></div>
+</div>
+<div class="anim-grid" aria-hidden="true"></div>
+<div class="progress" aria-hidden="true"><span class="progress__bar"></span></div>
+
+<header class="site-header">
+  <nav class="nav" aria-label="Navigation principale">
+    <a class="nav__brand" href="index.html">Accueil</a>
+    <ul class="nav__list">
+      <li><a href="audiovisuel.html">Audiovisuel</a></li>
+      <li><a href="projets.html">Projets</a></li>
+      <li><a href="creations.html" aria-current="page">Créations</a></li>
+      <li><a href="stage.html">Stage</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- ============ EN-TÊTE DE COMPOSITION ============ -->
+  <section class="comp" data-plan="assets/img/cine/ciel-braise.webp" data-froid="#228866" data-teinte="#f35e07">
+    <div class="sec-meta reveal">
+      <span class="sec-meta__num">02</span>
+      <span class="sec-meta__cat">Créations</span>
+    </div>
+
+    <h1 class="comp__title reveal reveal--wipe">ANIMA<br>TIONS</h1>
+
+    <div class="comp__specs reveal" data-delay="1">
+      <span><b>Comp</b>Motion</span>
+      <span><b>Format</b>1920 × 1080</span>
+      <span><b>Cadence</b>25 ips</span>
+      <span><b>Calques</b>05</span>
+      <span><b>Outils</b>After Effects · Illustrator</span>
+    </div>
+  </section>
+
+  <!-- ============ TIMELINE ============ -->
+  <section class="timeline reveal" aria-label="Sommaire des animations">
+    <div class="timeline__frame">
+      <div class="timeline__ruler" aria-hidden="true">
+        <span>Calques</span>
+        <span>00:00</span>
+        <span>00:02</span>
+        <span>00:04</span>
+        <span>00:06</span>
+        <span>00:08</span>
+      </div>
+
+      <a class="layer" href="#take-01" style="--i:0">
+        <span class="layer__name"><span class="layer__num">01</span> Player</span>
+        <span class="layer__track">
+          <span class="layer__bar" style="left:2%;width:34%"></span>
+          <span class="layer__key" style="left:2%;--kd:0ms"></span>
+          <span class="layer__key" style="left:20%;--kd:90ms"></span>
+          <span class="layer__key" style="left:36%;--kd:180ms"></span>
+        </span>
+      </a>
+
+      <a class="layer" href="#take-02" style="--i:1">
+        <span class="layer__name"><span class="layer__num">02</span> Analyse</span>
+        <span class="layer__track">
+          <span class="layer__bar" style="left:12%;width:40%"></span>
+          <span class="layer__key" style="left:12%;--kd:0ms"></span>
+          <span class="layer__key" style="left:34%;--kd:90ms"></span>
+          <span class="layer__key" style="left:52%;--kd:180ms"></span>
+        </span>
+      </a>
+
+      <a class="layer" href="#take-03" style="--i:2">
+        <span class="layer__name"><span class="layer__num">03</span> Ligne</span>
+        <span class="layer__track">
+          <span class="layer__bar" style="left:30%;width:30%"></span>
+          <span class="layer__key" style="left:30%;--kd:0ms"></span>
+          <span class="layer__key" style="left:45%;--kd:90ms"></span>
+          <span class="layer__key" style="left:60%;--kd:180ms"></span>
+        </span>
+      </a>
+
+      <a class="layer" href="#take-04" style="--i:3">
+        <span class="layer__name"><span class="layer__num">04</span> Horreur</span>
+        <span class="layer__track">
+          <span class="layer__bar" style="left:46%;width:34%"></span>
+          <span class="layer__key" style="left:46%;--kd:0ms"></span>
+          <span class="layer__key" style="left:66%;--kd:90ms"></span>
+          <span class="layer__key" style="left:80%;--kd:180ms"></span>
+        </span>
+      </a>
+
+      <a class="layer" href="#take-05" style="--i:4">
+        <span class="layer__name"><span class="layer__num">05</span> Logo</span>
+        <span class="layer__track">
+          <span class="layer__bar" style="left:66%;width:30%"></span>
+          <span class="layer__key" style="left:66%;--kd:0ms"></span>
+          <span class="layer__key" style="left:82%;--kd:90ms"></span>
+          <span class="layer__key" style="left:96%;--kd:180ms"></span>
+        </span>
+      </a>
+
+      <span class="timeline__playhead" aria-hidden="true"></span>
+    </div>
+  </section>
+
+  <!-- ============ 01 — PLAYER ============ -->
+  <article class="take reveal" id="take-01">
+    <div class="take__viewer">
+      <div class="viewer__bar"><span>Comp · Player</span><span>1920 × 1080</span></div>
+      <div class="viewer__stage">
+        <video class="viewer__video" controls preload="metadata" playsinline
+                 aria-label="Animation Player">
+          <source src="assets/video/player.mp4#t=0.5" type="video/mp4">
+          Votre navigateur ne peut pas lire cette vidéo.
+        </video>
+      </div>
+      <div class="viewer__transport"><span>00:00</span><span class="viewer__progress"></span><span>25 ips</span></div>
+    </div>
+
+    <div class="take__text">
+      <span class="take__num">Calque 01</span>
+      <h2 class="take__title">PLAYER</h2>
+      <p class="take__body">Cette animation consistait à reproduire l'animation d'un lecteur sur l'interface d'un système d'exploitation. Pour la réaliser, j'ai choisi le thème d'un célèbre manga que j'aime beaucoup, Death Note. Elle a été conçue sur After Effects à partir d'une base que j'ai réalisée sur Illustrator.</p>
+
+      <div class="take__tools"><span>After Effects</span><span>Illustrator</span><span>Interface</span></div>
+
+      <div class="curve" aria-hidden="true">
+        <svg viewBox="0 0 90 60">
+          <path class="curve__grid" d="M0 0 H90 M0 30 H90 M0 60 H90 M0 0 V60 M45 0 V60 M90 0 V60"/>
+          <path class="curve__path" d="M 0 60 C 26 60 30 0 90 0"/>
+          <circle class="curve__dot" r="3.5"/>
+        </svg>
+        <span class="curve__label"><b>Accélération</b>Ease in — out</span>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ 02 — ANALYSE ============ -->
+  <article class="take reveal" id="take-02">
+    <div class="take__viewer">
+      <div class="viewer__bar"><span>Comp · Analyse</span><span>1920 × 1080</span></div>
+      <div class="viewer__stage">
+        <video class="viewer__video" controls preload="metadata" playsinline
+                 aria-label="Animation Analyse">
+          <source src="assets/video/analyse.mp4#t=0.5" type="video/mp4">
+          Votre navigateur ne peut pas lire cette vidéo.
+        </video>
+      </div>
+      <div class="viewer__transport"><span>00:00</span><span class="viewer__progress"></span><span>25 ips</span></div>
+    </div>
+
+    <div class="take__text">
+      <span class="take__num">Calque 02</span>
+      <h2 class="take__title">ANALYSE</h2>
+      <p class="take__body">Cette animation consistait à reproduire l'interface d'une application d'analyse de données, incluant un temps de chargement avant d'afficher les résultats. Je l'ai réalisée sur After Effects à partir d'une base conçue sur Illustrator.</p>
+
+      <div class="take__tools"><span>After Effects</span><span>Illustrator</span><span>Données</span></div>
+
+      <div class="curve" aria-hidden="true">
+        <svg viewBox="0 0 90 60">
+          <path class="curve__grid" d="M0 0 H90 M0 30 H90 M0 60 H90 M0 0 V60 M45 0 V60 M90 0 V60"/>
+          <path class="curve__path" d="M 0 60 C 26 60 30 0 90 0"/>
+          <circle class="curve__dot" r="3.5"/>
+        </svg>
+        <span class="curve__label"><b>Accélération</b>Ease in — out</span>
+      </div>
+
+      <p class="take__body" style="margin-top:1.5rem">Le logo de cette application figure dans mes créations : <a href="creation-logo.html" style="text-decoration:underline">Genome Analysis</a>.</p>
+    </div>
+  </article>
+
+  <!-- ============ 03 — LIGNE ============ -->
+  <article class="take reveal" id="take-03">
+    <div class="take__viewer">
+      <div class="viewer__bar"><span>Comp · Ligne</span><span>1920 × 1080</span></div>
+      <div class="viewer__stage">
+        <video class="viewer__video" controls preload="metadata" playsinline
+                 aria-label="Animation Ligne">
+          <source src="assets/video/ligne.mp4#t=0.5" type="video/mp4">
+          Votre navigateur ne peut pas lire cette vidéo.
+        </video>
+      </div>
+      <div class="viewer__transport"><span>00:00</span><span class="viewer__progress"></span><span>25 ips</span></div>
+    </div>
+
+    <div class="take__text">
+      <span class="take__num">Calque 03</span>
+      <h2 class="take__title">LIGNE</h2>
+      <p class="take__body">Cette animation avait pour but d'apprendre l'animation de lignes. L'exercice consistait à synchroniser une ligne animée au rythme d'une musique, le tout sur un fond de buildings. Je l'ai réalisée uniquement sur After Effects.</p>
+
+      <div class="take__tools"><span>After Effects</span><span>Synchro audio</span></div>
+
+      <div class="curve" aria-hidden="true">
+        <svg viewBox="0 0 90 60">
+          <path class="curve__grid" d="M0 0 H90 M0 30 H90 M0 60 H90 M0 0 V60 M45 0 V60 M90 0 V60"/>
+          <path class="curve__path" d="M 0 60 C 26 60 30 0 90 0"/>
+          <circle class="curve__dot" r="3.5"/>
+        </svg>
+        <span class="curve__label"><b>Accélération</b>Ease in — out</span>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ 04 — SCÈNE D'HORREUR ============ -->
+  <article class="take reveal" id="take-04">
+    <div class="take__viewer">
+      <div class="viewer__bar"><span>Comp · Horreur</span><span>1920 × 1080</span></div>
+      <div class="viewer__stage">
+        <video class="viewer__video" controls preload="metadata" playsinline
+                 aria-label="Animation Scène d'horreur">
+          <source src="assets/video/horreur.mp4#t=0.5" type="video/mp4">
+          Votre navigateur ne peut pas lire cette vidéo.
+        </video>
+      </div>
+      <div class="viewer__transport"><span>00:00</span><span class="viewer__progress"></span><span>25 ips</span></div>
+    </div>
+
+    <div class="take__text">
+      <span class="take__num">Calque 04</span>
+      <h2 class="take__title">SCÈNE D'HORREUR</h2>
+      <p class="take__body">Cette animation avait pour but de reproduire une scène en partant d'une image statique et de créer une animation qui donnerait l'effet de déplacement et de vie. J'ai choisi de partir sur un thème horreur pour réaliser cet exercice. J'ai fait la totalité sur After Effects.</p>
+
+      <div class="take__tools"><span>After Effects</span><span>Parallaxe</span></div>
+
+      <div class="curve" aria-hidden="true">
+        <svg viewBox="0 0 90 60">
+          <path class="curve__grid" d="M0 0 H90 M0 30 H90 M0 60 H90 M0 0 V60 M45 0 V60 M90 0 V60"/>
+          <path class="curve__path" d="M 0 60 C 26 60 30 0 90 0"/>
+          <circle class="curve__dot" r="3.5"/>
+        </svg>
+        <span class="curve__label"><b>Accélération</b>Ease in — out</span>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ 05 — LOGO ============ -->
+  <article class="take reveal" id="take-05">
+    <div class="take__viewer">
+      <div class="viewer__bar"><span>Comp · Logo</span><span>1920 × 1080</span></div>
+      <div class="viewer__stage">
+        <video class="viewer__video" controls preload="metadata" playsinline
+                 aria-label="Animation de logo">
+          <source src="assets/video/logo-anime.mp4#t=0.5" type="video/mp4">
+          Votre navigateur ne peut pas lire cette vidéo.
+        </video>
+      </div>
+      <div class="viewer__transport"><span>00:00</span><span class="viewer__progress"></span><span>25 ips</span></div>
+    </div>
+
+    <div class="take__text">
+      <span class="take__num">Calque 05</span>
+      <h2 class="take__title">ANIMATION DE LOGO</h2>
+      <p class="take__body">C'est une animation de logo que j'ai réalisée pour un projet axé sur la réduction des SMS pour lutter contre la pollution. J'ai conçu le logo sur Illustrator et je l'ai animé sur After Effects.</p>
+
+      <div class="take__tools"><span>After Effects</span><span>Illustrator</span><span>Logo</span></div>
+
+      <div class="curve" aria-hidden="true">
+        <svg viewBox="0 0 90 60">
+          <path class="curve__grid" d="M0 0 H90 M0 30 H90 M0 60 H90 M0 0 V60 M45 0 V60 M90 0 V60"/>
+          <path class="curve__path" d="M 0 60 C 26 60 30 0 90 0"/>
+          <circle class="curve__dot" r="3.5"/>
+        </svg>
+        <span class="curve__label"><b>Accélération</b>Ease in — out</span>
+      </div>
+
+      <p class="take__body" style="margin-top:1.5rem">Ce logo fait partie du projet <a href="projet-eco-ms.html" style="text-decoration:underline">Campagne Eco MS</a>.</p>
+    </div>
+  </article>
+
+  <div class="case-foot">
+    <a class="back-link" href="creations.html"><span aria-hidden="true">←</span> Retour aux créations</a>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <p class="site-footer__name">MPOKO NKOTE</p>
+  <div class="site-footer__bar">
+    <span>@ MPOKO NKOTE 2026 DESIGN</span>
+    <a href="https://www.linkedin.com/in/marlon-mpoko-nkote-088b88265/" target="_blank" rel="noopener">LINKEDIN</a>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/ambiance.js"></script>
+<script src="js/toile.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+# Dossiers sources — les fichiers de travail d'origine (73 Mo).
+# Le site n'en a pas besoin : tout ce qu'il affiche est déjà dans assets/.
+Impact/
+Emmaus/
+NOUS/
+ecosms/
+_video-originaux/
+
+# Fichiers qui n'ont rien à faire dans un site
+Git-*.exe
+*.exe
+
+# Outillage local
+.claude/
+.vscode/
+node_modules/
+
+# Système
+Thumbs.db
+desktop.ini
+.DS_Store

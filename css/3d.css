@@ -1,0 +1,283 @@
+/* =========================================================
+   PAGE 3D — « viewport »
+   Chargée uniquement par creation-3d.html, après style.css.
+   Après le banc de montage (audiovisuel) et la composition
+   (animations), cette page emprunte le vocabulaire du logiciel
+   de modélisation : viewport, outliner, gizmo d'axes, wireframe.
+   ========================================================= */
+
+.scn{
+  --sel: #ff2d1f;                 /* couleur de sélection, comme les autres pages outils */
+  --mono: 'IBM Plex Mono', ui-monospace, monospace;
+}
+
+/* ---------- Sol quadrillé en perspective ---------- */
+.scn-floor{
+  position: fixed;
+  inset: auto 0 0 0;
+  height: 55vh;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(251,255,254,.14) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(251,255,254,.14) 1px, transparent 1px);
+  background-size: 70px 70px;
+  transform: perspective(340px) rotateX(62deg);
+  transform-origin: bottom center;
+  mask-image: linear-gradient(to top, #000 5%, transparent 85%);
+  -webkit-mask-image: linear-gradient(to top, #000 5%, transparent 85%);
+  opacity: .5;
+}
+.scn main, .scn .site-footer{ position: relative; z-index: 1; }
+
+/* ---------- En-tête de scène ---------- */
+.scene{
+  max-width: 1440px;
+  margin-inline: auto;
+  padding: clamp(3rem, 7vw, 6rem) var(--gutter) 0;
+}
+
+.scene__title{
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(4rem, 20vw, 16rem);
+  line-height: .78;
+  letter-spacing: -0.06em;
+  margin-block: clamp(1rem, 2.5vw, 1.75rem) clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.scene__bar{
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: .6875rem;
+  letter-spacing: .08em;
+}
+.scene__bar > span{
+  padding: .7rem clamp(.8rem, 2vw, 1.4rem);
+  border-right: 1px solid var(--line);
+  color: var(--muted);
+  white-space: nowrap;
+}
+.scene__bar > span:last-child{ border-right: 0; }
+.scene__bar b{ color: var(--faint); font-weight: 400; margin-right: .55rem; }
+
+/* =========================================================
+   OUTLINER — la hiérarchie de la scène sert de sommaire
+   ========================================================= */
+.outliner{
+  max-width: 1440px;
+  margin: clamp(2.5rem, 5vw, 4rem) auto 0;
+  padding-inline: var(--gutter);
+}
+.outliner__frame{
+  border: 1px solid var(--line);
+}
+.outliner__head{
+  padding: .6rem .85rem;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: .5625rem;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  color: var(--faint);
+}
+.outliner__list{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+}
+.outliner__item{
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  padding: .7rem .85rem;
+  border-right: 1px solid rgba(251,255,254,.07);
+  border-bottom: 1px solid rgba(251,255,254,.07);
+  font-family: var(--mono);
+  font-size: .625rem;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--faint);
+  transition: color .4s var(--ease), background-color .4s var(--ease);
+}
+.outliner__item:hover{ color: var(--white); background: rgba(251,255,254,.04); }
+
+/* petit cube en fil de fer devant chaque objet */
+.outliner__icon{
+  width: 11px; height: 11px;
+  flex: none;
+  border: 1px solid currentColor;
+  position: relative;
+  transform: rotate(45deg) scaleY(.55);
+}
+.outliner__icon::after{
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border: 1px solid currentColor;
+  opacity: .5;
+}
+
+/* =========================================================
+   OBJET — un travail = un bloc
+   ========================================================= */
+.obj{
+  max-width: 1440px;
+  margin-inline: auto;
+  padding: clamp(2.5rem, 5vw, 4.5rem) var(--gutter);
+}
+.obj + .obj{ border-top: 1px solid var(--line); }
+
+.obj__head{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: .75rem 2rem;
+  padding-bottom: clamp(1rem, 2vw, 1.5rem);
+  border-bottom: 1px solid var(--line);
+}
+.obj__num{
+  font-family: var(--mono);
+  font-size: .625rem;
+  text-transform: uppercase;
+  letter-spacing: .24em;
+  color: var(--faint);
+}
+.obj__title{
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 3.6vw, 3rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  flex: 1 1 auto;
+}
+.obj__engine{
+  font-family: var(--mono);
+  font-size: .5625rem;
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  color: var(--faint);
+  border: 1px solid var(--line);
+  padding: .4rem .75rem;
+}
+
+.obj__body{
+  margin-top: clamp(1.25rem, 2.5vw, 2rem);
+  font-family: var(--body);
+  font-weight: 200;
+  font-size: .9375rem;
+  line-height: 1.85;
+  color: var(--muted);
+  max-width: 68ch;
+}
+.obj__body p + p{ margin-top: 1.4em; }
+
+.obj__views{
+  margin-top: clamp(1.75rem, 3.5vw, 2.75rem);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: clamp(.9rem, 1.8vw, 1.5rem);
+}
+.obj__views--trio{ grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
+
+/* =========================================================
+   VIEWPORT — cadre d'image avec repères de logiciel 3D
+   ========================================================= */
+.viewport{
+  position: relative;
+  overflow: hidden;
+  background: #0a0a0a;
+  border: 1px solid var(--line);
+  transition: border-color .5s var(--ease);
+}
+.viewport:hover{ border-color: var(--sel); }
+
+.viewport img{
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+
+/* maillage révélé au survol */
+.viewport__mesh{
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .55s var(--ease);
+  background-image:
+    repeating-linear-gradient(0deg,   transparent 0 25px, rgba(251,255,254,.42) 25px 26px),
+    repeating-linear-gradient(90deg,  transparent 0 25px, rgba(251,255,254,.42) 25px 26px),
+    repeating-linear-gradient(45deg,  transparent 0 35px, rgba(251,255,254,.26) 35px 36px),
+    radial-gradient(circle, rgba(251,255,254,.85) 1.2px, transparent 1.3px);
+  background-size: auto, auto, auto, 26px 26px;
+  background-position: 0 0, 0 0, 0 0, 25px 25px;
+}
+.viewport:hover .viewport__mesh{ opacity: .5; }
+
+/* étiquettes de coin */
+.viewport__tag{
+  position: absolute;
+  z-index: 3;
+  font-family: var(--mono);
+  font-size: .5625rem;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  color: var(--white);
+  background: rgba(0,0,0,.6);
+  padding: .28rem .5rem;
+  pointer-events: none;
+}
+.viewport__tag--tl{ top: 10px; left: 10px; }
+.viewport__tag--tr{ top: 10px; right: 10px; color: var(--faint); }
+.viewport__tag--mesh{
+  bottom: 10px; right: 10px;
+  opacity: 0;
+  transition: opacity .55s var(--ease);
+  color: var(--sel);
+}
+.viewport:hover .viewport__tag--mesh{ opacity: 1; }
+
+/* gizmo d'axes, coin bas gauche */
+.gizmo{
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  z-index: 3;
+  width: 46px;
+  height: 46px;
+  pointer-events: none;
+  opacity: .85;
+}
+.gizmo line{ stroke-width: 1.2; }
+.gizmo .ax-x{ stroke: rgba(251,255,254,.75); }
+.gizmo .ax-y{ stroke: rgba(251,255,254,.45); }
+.gizmo .ax-z{ stroke: var(--sel); }
+.gizmo circle{ fill: #000; stroke-width: 1; }
+.gizmo .pt-x{ stroke: rgba(251,255,254,.75); }
+.gizmo .pt-y{ stroke: rgba(251,255,254,.45); }
+.gizmo .pt-z{ stroke: var(--sel); }
+.gizmo text{
+  font-family: var(--mono);
+  font-size: 6px;
+  fill: var(--white);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 700px){
+  .scene__bar{ flex-direction: column; }
+  .scene__bar > span{ border-right: 0; border-bottom: 1px solid var(--line); }
+  .scene__bar > span:last-child{ border-bottom: 0; }
+  .obj__head{ flex-direction: column; align-items: flex-start; }
+  .gizmo{ width: 34px; height: 34px; left: 8px; bottom: 8px; }
+  .scn-floor{ background-size: 46px 46px; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .viewport__mesh,
+  .viewport__tag--mesh{ transition: none; }
+}

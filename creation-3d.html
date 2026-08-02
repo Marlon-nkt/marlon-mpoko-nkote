@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3D | Portfom</title>
+<meta name="description" content="Créations 3D de Marlon Mpoko Nkote — modélisation de personnage, d'animal et de paysage sur Blender, nature morte sur Maya.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Poppins:wght@200;300;400;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/3d.css">
+</head>
+<body class="scn cinema">
+
+<a class="skip-link" href="#main">Aller au contenu principal</a>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="cine" aria-hidden="true">
+  <div class="cine__plan"></div>
+  <div class="cine__plan"></div>
+  <div class="cine__brume"></div>
+  <div class="cine__halation"></div>
+  <div class="cine__scrim"></div>
+  <div class="cine__vignette"></div>
+</div>
+<div class="scn-floor" aria-hidden="true"></div>
+<div class="progress" aria-hidden="true"><span class="progress__bar"></span></div>
+
+<header class="site-header">
+  <nav class="nav" aria-label="Navigation principale">
+    <a class="nav__brand" href="index.html">Accueil</a>
+    <ul class="nav__list">
+      <li><a href="audiovisuel.html">Audiovisuel</a></li>
+      <li><a href="projets.html">Projets</a></li>
+      <li><a href="creations.html" aria-current="page">Créations</a></li>
+      <li><a href="stage.html">Stage</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- ============ EN-TÊTE DE SCÈNE ============ -->
+  <section class="scene" data-plan="assets/img/cine/crepuscule.webp" data-froid="#886666" data-teinte="#de8137">
+    <div class="sec-meta reveal">
+      <span class="sec-meta__num">04</span>
+      <span class="sec-meta__cat">Créations</span>
+    </div>
+
+    <h1 class="scene__title reveal reveal--wipe">3D</h1>
+
+    <div class="scene__bar reveal" data-delay="1">
+      <span><b>Mode</b>Objet</span>
+      <span><b>Vue</b>Caméra</span>
+      <span><b>Logiciels</b>Blender · Maya</span>
+      <span><b>Travaux</b>03</span>
+      <span><b>Rendus</b>07</span>
+    </div>
+  </section>
+
+  <!-- ============ OUTLINER ============ -->
+  <section class="outliner reveal" aria-label="Contenu de la scène du parc">
+    <div class="outliner__frame">
+      <div class="outliner__head">Scène — Parc</div>
+      <div class="outliner__list">
+        <span class="outliner__item"><span class="outliner__icon" aria-hidden="true"></span>Personnage</span>
+        <span class="outliner__item"><span class="outliner__icon" aria-hidden="true"></span>Chien</span>
+        <span class="outliner__item"><span class="outliner__icon" aria-hidden="true"></span>Ballon</span>
+        <span class="outliner__item"><span class="outliner__icon" aria-hidden="true"></span>Banc</span>
+        <span class="outliner__item"><span class="outliner__icon" aria-hidden="true"></span>Arbres</span>
+        <span class="outliner__item"><span class="outliner__icon" aria-hidden="true"></span>Route</span>
+        <span class="outliner__item"><span class="outliner__icon" aria-hidden="true"></span>Sol · herbe</span>
+        <span class="outliner__item"><span class="outliner__icon" aria-hidden="true"></span>Caméra</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 01 — PARC ============ -->
+  <article class="obj reveal" id="obj-01">
+    <div class="obj__head">
+      <span class="obj__num">Objet 01</span>
+      <h2 class="obj__title">PERSONNAGE, ANIMAL &amp; PAYSAGE</h2>
+      <span class="obj__engine">Blender</span>
+    </div>
+
+    <div class="obj__body">
+      <p>Cet exercice consistait à modéliser une scène complète sur Blender, en réunissant trois exercices dans un seul décor : un personnage, un animal et le paysage qui les entoure.</p>
+      <p>J'ai composé un parc traversé par une route, avec un personnage debout près de son ballon, un chien, un banc et des arbres plantés dans une étendue d'herbe. J'ai ensuite travaillé l'éclairage, les matériaux et le placement de la caméra, puis effectué le rendu sous deux angles : un plan rapproché au niveau du sol et une vue plus haute qui dégage l'ensemble du décor.</p>
+    </div>
+
+    <div class="obj__views">
+      <figure class="viewport reveal reveal--up">
+        <span class="viewport__tag viewport__tag--tl">Vue 01 — Caméra</span>
+        <span class="viewport__tag viewport__tag--tr">Rendu</span>
+        <img src="assets/img/3d/parc-01.jpg" alt="Rendu 3D du parc — plan rapproché sur le personnage, le chien et le ballon" loading="lazy">
+        <span class="viewport__mesh" aria-hidden="true"></span>
+        <span class="viewport__tag viewport__tag--mesh">Wireframe</span>
+        <svg class="gizmo" viewBox="0 0 46 46" aria-hidden="true">
+          <line class="ax-x" x1="23" y1="23" x2="40" y2="30"/>
+          <line class="ax-y" x1="23" y1="23" x2="6"  y2="30"/>
+          <line class="ax-z" x1="23" y1="23" x2="23" y2="5"/>
+          <circle class="pt-x" cx="40" cy="30" r="4"/>
+          <circle class="pt-y" cx="6"  cy="30" r="4"/>
+          <circle class="pt-z" cx="23" cy="5"  r="4"/>
+          <text x="40" y="32" text-anchor="middle">X</text>
+          <text x="6"  y="32" text-anchor="middle">Y</text>
+          <text x="23" y="7"  text-anchor="middle">Z</text>
+        </svg>
+      </figure>
+
+      <figure class="viewport reveal reveal--up" data-delay="1">
+        <span class="viewport__tag viewport__tag--tl">Vue 02 — Caméra</span>
+        <span class="viewport__tag viewport__tag--tr">Rendu</span>
+        <img src="assets/img/3d/parc-02.jpg" alt="Rendu 3D du parc — vue large dégageant la route et les arbres" loading="lazy">
+        <span class="viewport__mesh" aria-hidden="true"></span>
+        <span class="viewport__tag viewport__tag--mesh">Wireframe</span>
+        <svg class="gizmo" viewBox="0 0 46 46" aria-hidden="true">
+          <line class="ax-x" x1="23" y1="23" x2="40" y2="30"/>
+          <line class="ax-y" x1="23" y1="23" x2="6"  y2="30"/>
+          <line class="ax-z" x1="23" y1="23" x2="23" y2="5"/>
+          <circle class="pt-x" cx="40" cy="30" r="4"/>
+          <circle class="pt-y" cx="6"  cy="30" r="4"/>
+          <circle class="pt-z" cx="23" cy="5"  r="4"/>
+          <text x="40" y="32" text-anchor="middle">X</text>
+          <text x="6"  y="32" text-anchor="middle">Y</text>
+          <text x="23" y="7"  text-anchor="middle">Z</text>
+        </svg>
+      </figure>
+    </div>
+  </article>
+
+  <!-- ============ 02 — NATURE MORTE ============ -->
+  <article class="obj reveal" id="obj-02">
+    <div class="obj__head">
+      <span class="obj__num">Objet 02</span>
+      <h2 class="obj__title">NATURE MORTE</h2>
+      <span class="obj__engine">Maya</span>
+    </div>
+
+    <div class="obj__body">
+      <p>Sur le logiciel Maya, j'ai réalisé une nature morte, rendue sous deux angles de caméra.</p>
+    </div>
+
+    <div class="obj__views">
+      <figure class="viewport reveal reveal--up">
+        <span class="viewport__tag viewport__tag--tl">Vue 01</span>
+        <span class="viewport__tag viewport__tag--tr">Rendu</span>
+        <img src="assets/img/3d/nature-morte-1.avif" alt="Nature morte 3D, premier angle" loading="lazy">
+        <span class="viewport__mesh" aria-hidden="true"></span>
+        <span class="viewport__tag viewport__tag--mesh">Wireframe</span>
+        <svg class="gizmo" viewBox="0 0 46 46" aria-hidden="true">
+          <line class="ax-x" x1="23" y1="23" x2="40" y2="30"/>
+          <line class="ax-y" x1="23" y1="23" x2="6"  y2="30"/>
+          <line class="ax-z" x1="23" y1="23" x2="23" y2="5"/>
+          <circle class="pt-x" cx="40" cy="30" r="4"/>
+          <circle class="pt-y" cx="6"  cy="30" r="4"/>
+          <circle class="pt-z" cx="23" cy="5"  r="4"/>
+          <text x="40" y="32" text-anchor="middle">X</text>
+          <text x="6"  y="32" text-anchor="middle">Y</text>
+          <text x="23" y="7"  text-anchor="middle">Z</text>
+        </svg>
+      </figure>
+
+      <figure class="viewport reveal reveal--up" data-delay="1">
+        <span class="viewport__tag viewport__tag--tl">Vue 02</span>
+        <span class="viewport__tag viewport__tag--tr">Rendu</span>
+        <img src="assets/img/3d/nature-morte-2.avif" alt="Nature morte 3D, second angle" loading="lazy">
+        <span class="viewport__mesh" aria-hidden="true"></span>
+        <span class="viewport__tag viewport__tag--mesh">Wireframe</span>
+        <svg class="gizmo" viewBox="0 0 46 46" aria-hidden="true">
+          <line class="ax-x" x1="23" y1="23" x2="40" y2="30"/>
+          <line class="ax-y" x1="23" y1="23" x2="6"  y2="30"/>
+          <line class="ax-z" x1="23" y1="23" x2="23" y2="5"/>
+          <circle class="pt-x" cx="40" cy="30" r="4"/>
+          <circle class="pt-y" cx="6"  cy="30" r="4"/>
+          <circle class="pt-z" cx="23" cy="5"  r="4"/>
+          <text x="40" y="32" text-anchor="middle">X</text>
+          <text x="6"  y="32" text-anchor="middle">Y</text>
+          <text x="23" y="7"  text-anchor="middle">Z</text>
+        </svg>
+      </figure>
+    </div>
+  </article>
+
+  <!-- ============ 03 — MODULE VR ============ -->
+  <article class="obj reveal" id="obj-03">
+    <div class="obj__head">
+      <span class="obj__num">Objet 03</span>
+      <h2 class="obj__title">MODULE VR — PROJET ÉTIQUETTE</h2>
+      <span class="obj__engine">Blender</span>
+    </div>
+
+    <div class="obj__body">
+      <p>Sur Blender, j'ai modélisé l'intérieur complet d'une maison, en incluant chaque meuble et recoin des pièces. Ce travail a ensuite été intégré dans le module de réalité virtuelle de mon groupe, dans le cadre du projet Étiquette.</p>
+      <p>Voir le projet complet : <a href="projet-media-impact.html" style="text-decoration:underline">Media Impact</a>.</p>
+    </div>
+
+    <div class="obj__views obj__views--trio">
+      <figure class="viewport reveal reveal--up">
+        <span class="viewport__tag viewport__tag--tl">Intérieur 01</span>
+        <span class="viewport__tag viewport__tag--tr">Rendu</span>
+        <img src="assets/img/impact/3d-1.png" alt="Rendu 3D de l'intérieur modélisé pour le module VR" loading="lazy">
+        <span class="viewport__mesh" aria-hidden="true"></span>
+        <span class="viewport__tag viewport__tag--mesh">Wireframe</span>
+        <svg class="gizmo" viewBox="0 0 46 46" aria-hidden="true">
+          <line class="ax-x" x1="23" y1="23" x2="40" y2="30"/>
+          <line class="ax-y" x1="23" y1="23" x2="6"  y2="30"/>
+          <line class="ax-z" x1="23" y1="23" x2="23" y2="5"/>
+          <circle class="pt-x" cx="40" cy="30" r="4"/>
+          <circle class="pt-y" cx="6"  cy="30" r="4"/>
+          <circle class="pt-z" cx="23" cy="5"  r="4"/>
+          <text x="40" y="32" text-anchor="middle">X</text>
+          <text x="6"  y="32" text-anchor="middle">Y</text>
+          <text x="23" y="7"  text-anchor="middle">Z</text>
+        </svg>
+      </figure>
+
+      <figure class="viewport reveal reveal--up" data-delay="1">
+        <span class="viewport__tag viewport__tag--tl">Intérieur 02</span>
+        <span class="viewport__tag viewport__tag--tr">Rendu</span>
+        <img src="assets/img/impact/3d-3.png" alt="Rendu 3D de l'intérieur modélisé pour le module VR" loading="lazy">
+        <span class="viewport__mesh" aria-hidden="true"></span>
+        <span class="viewport__tag viewport__tag--mesh">Wireframe</span>
+        <svg class="gizmo" viewBox="0 0 46 46" aria-hidden="true">
+          <line class="ax-x" x1="23" y1="23" x2="40" y2="30"/>
+          <line class="ax-y" x1="23" y1="23" x2="6"  y2="30"/>
+          <line class="ax-z" x1="23" y1="23" x2="23" y2="5"/>
+          <circle class="pt-x" cx="40" cy="30" r="4"/>
+          <circle class="pt-y" cx="6"  cy="30" r="4"/>
+          <circle class="pt-z" cx="23" cy="5"  r="4"/>
+          <text x="40" y="32" text-anchor="middle">X</text>
+          <text x="6"  y="32" text-anchor="middle">Y</text>
+          <text x="23" y="7"  text-anchor="middle">Z</text>
+        </svg>
+      </figure>
+
+      <figure class="viewport reveal reveal--up" data-delay="2">
+        <span class="viewport__tag viewport__tag--tl">Intérieur 03</span>
+        <span class="viewport__tag viewport__tag--tr">Rendu</span>
+        <img src="assets/img/impact/3d-5.png" alt="Rendu 3D de l'intérieur modélisé pour le module VR" loading="lazy">
+        <span class="viewport__mesh" aria-hidden="true"></span>
+        <span class="viewport__tag viewport__tag--mesh">Wireframe</span>
+        <svg class="gizmo" viewBox="0 0 46 46" aria-hidden="true">
+          <line class="ax-x" x1="23" y1="23" x2="40" y2="30"/>
+          <line class="ax-y" x1="23" y1="23" x2="6"  y2="30"/>
+          <line class="ax-z" x1="23" y1="23" x2="23" y2="5"/>
+          <circle class="pt-x" cx="40" cy="30" r="4"/>
+          <circle class="pt-y" cx="6"  cy="30" r="4"/>
+          <circle class="pt-z" cx="23" cy="5"  r="4"/>
+          <text x="40" y="32" text-anchor="middle">X</text>
+          <text x="6"  y="32" text-anchor="middle">Y</text>
+          <text x="23" y="7"  text-anchor="middle">Z</text>
+        </svg>
+      </figure>
+    </div>
+  </article>
+
+  <div class="case-foot">
+    <a class="back-link" href="creations.html"><span aria-hidden="true">←</span> Retour aux créations</a>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <p class="site-footer__name">MPOKO NKOTE</p>
+  <div class="site-footer__bar">
+    <span>@ MPOKO NKOTE 2026 DESIGN</span>
+    <a href="https://www.linkedin.com/in/marlon-mpoko-nkote-088b88265/" target="_blank" rel="noopener">LINKEDIN</a>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/ambiance.js"></script>
+<script src="js/toile.js"></script>
+</body>
+</html>

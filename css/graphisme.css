@@ -1,0 +1,263 @@
+/* =========================================================
+   PAGE GRAPHISME — « plan de travail »
+   Chargée uniquement par creation-graphisme.html, après style.css.
+   Quatrième page « outil » du site : après le banc de montage,
+   la composition et le viewport, celle-ci emprunte le vocabulaire
+   de l'illustration — règles graduées, plans de travail, poignées
+   de sélection, nuanciers.
+   Les couleurs de fond et les nuanciers sont échantillonnés dans
+   les œuvres elles-mêmes : rien n'est décoratif au hasard.
+   ========================================================= */
+
+.gfx{
+  --sel: #ff2d1f;
+  --mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --teinte: #4890d8;              /* remplacé par bloc via --teinte en ligne */
+}
+
+/* le halo de fond est désormais le composant partagé .ambiance (style.css) */
+.gfx main, .gfx .site-footer{ position: relative; z-index: 1; }
+
+/* ---------- Règle graduée ---------- */
+.regle{
+  height: 22px;
+  border-block: 1px solid var(--line);
+  background-image:
+    repeating-linear-gradient(90deg, rgba(251,255,254,.42) 0 1px, transparent 1px 10px),
+    repeating-linear-gradient(90deg, rgba(251,255,254,.75) 0 1px, transparent 1px 50px);
+  background-size: 100% 7px, 100% 13px;
+  background-position: 0 100%, 0 100%;
+  background-repeat: repeat-x;
+}
+
+/* ---------- En-tête ---------- */
+.doc{
+  max-width: 1440px;
+  margin-inline: auto;
+  padding: clamp(3rem, 7vw, 6rem) var(--gutter) 0;
+}
+
+.doc__title{
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(2.5rem, 11vw, 9.5rem);
+  line-height: .82;
+  letter-spacing: -0.05em;
+  margin-block: clamp(1rem, 2.5vw, 1.75rem) clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.doc__bar{
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid var(--line);
+  background: rgba(0,0,0,.42);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-family: var(--mono);
+  font-size: .6875rem;
+  letter-spacing: .08em;
+}
+.doc__bar > span{
+  padding: .7rem clamp(.8rem, 2vw, 1.4rem);
+  border-right: 1px solid var(--line);
+  color: var(--muted);
+  white-space: nowrap;
+}
+.doc__bar > span:last-child{ border-right: 0; }
+.doc__bar b{ color: var(--faint); font-weight: 400; margin-right: .55rem; }
+
+/* =========================================================
+   PLAN DE TRAVAIL
+   ========================================================= */
+.board{
+  max-width: 1440px;
+  margin-inline: auto;
+  padding: clamp(2.5rem, 5vw, 4.5rem) var(--gutter);
+}
+.board + .board{ border-top: 1px solid var(--line); }
+
+.board__head{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: .75rem 2rem;
+  padding-bottom: clamp(1rem, 2vw, 1.5rem);
+  border-bottom: 1px solid var(--line);
+}
+.board__num{
+  font-family: var(--mono);
+  font-size: .625rem;
+  text-transform: uppercase;
+  letter-spacing: .24em;
+  color: var(--faint);
+}
+.board__title{
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(1.5rem, 3.4vw, 2.8rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  flex: 1 1 auto;
+}
+.board__tool{
+  font-family: var(--mono);
+  font-size: .5625rem;
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  color: var(--faint);
+  border: 1px solid var(--line);
+  padding: .4rem .75rem;
+  background: rgba(0,0,0,.4);
+}
+
+.board__body{
+  margin-top: clamp(1.25rem, 2.5vw, 2rem);
+  font-family: var(--body);
+  font-weight: 200;
+  font-size: .9375rem;
+  line-height: 1.85;
+  color: var(--muted);
+  max-width: 66ch;
+}
+
+/* ---------- Nuancier ---------- */
+.nuancier{
+  margin-top: clamp(1.25rem, 2.5vw, 1.75rem);
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+  flex-wrap: wrap;
+}
+.nuancier__label{
+  font-family: var(--mono);
+  font-size: .5625rem;
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  color: var(--faint);
+  margin-right: .3rem;
+}
+.nuancier i{
+  display: block;
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(251,255,254,.28);
+  transition: transform .45s var(--ease);
+  position: relative;
+}
+.nuancier i:hover{ transform: translateY(-4px); }
+.nuancier i::after{
+  content: attr(data-hex);
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + .4rem);
+  transform: translateX(-50%);
+  padding: .2rem .4rem;
+  background: rgba(0,0,0,.92);
+  border: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: .5rem;
+  letter-spacing: .06em;
+  color: var(--white);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s var(--ease);
+}
+.nuancier i:hover::after{ opacity: 1; }
+
+/* ---------- Grille des planches ---------- */
+.board__sheets{
+  margin-top: clamp(1.75rem, 3.5vw, 2.75rem);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: clamp(1.25rem, 2.5vw, 2.25rem);
+  align-items: start;              /* hauteurs libres : rien n'est rogné */
+}
+.board__sheets--duo{ grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+
+/* ---------- Une planche ---------- */
+.sheet{ position: relative; }
+
+.sheet__label{
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: .5rem;
+  font-family: var(--mono);
+  font-size: .5625rem;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  color: var(--faint);
+  transition: color .4s var(--ease);
+}
+.sheet:hover .sheet__label{ color: var(--sel); }
+
+.sheet__canvas{
+  position: relative;
+  border: 1px solid var(--line);
+  padding: clamp(.6rem, 1.2vw, 1rem);
+  /* damier de transparence, comme un fond de calque vide */
+  background-color: #0b0b0b;
+  background-image:
+    linear-gradient(45deg, rgba(251,255,254,.035) 25%, transparent 25%, transparent 75%, rgba(251,255,254,.035) 75%),
+    linear-gradient(45deg, rgba(251,255,254,.035) 25%, transparent 25%, transparent 75%, rgba(251,255,254,.035) 75%);
+  background-size: 18px 18px;
+  background-position: 0 0, 9px 9px;
+  transition: border-color .45s var(--ease);
+}
+.sheet:hover .sheet__canvas{ border-color: var(--sel); }
+
+/* l'image garde son format d'origine : aucun recadrage */
+.sheet__canvas img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* poignées de sélection aux quatre coins et aux milieux */
+.sheet__canvas::before,
+.sheet__canvas::after{
+  content: "";
+  position: absolute;
+  inset: -4px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .45s var(--ease);
+}
+.sheet__canvas::before{
+  background-image:
+    linear-gradient(var(--sel), var(--sel)),
+    linear-gradient(var(--sel), var(--sel)),
+    linear-gradient(var(--sel), var(--sel)),
+    linear-gradient(var(--sel), var(--sel));
+  background-size: 7px 7px;
+  background-position: 0 0, 100% 0, 0 100%, 100% 100%;
+  background-repeat: no-repeat;
+}
+.sheet__canvas::after{
+  background-image:
+    linear-gradient(var(--sel), var(--sel)),
+    linear-gradient(var(--sel), var(--sel)),
+    linear-gradient(var(--sel), var(--sel)),
+    linear-gradient(var(--sel), var(--sel));
+  background-size: 7px 7px;
+  background-position: 50% 0, 50% 100%, 0 50%, 100% 50%;
+  background-repeat: no-repeat;
+}
+.sheet:hover .sheet__canvas::before,
+.sheet:hover .sheet__canvas::after{ opacity: 1; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 700px){
+  .doc__bar{ flex-direction: column; }
+  .doc__bar > span{ border-right: 0; border-bottom: 1px solid var(--line); }
+  .doc__bar > span:last-child{ border-bottom: 0; }
+  .board__head{ flex-direction: column; align-items: flex-start; }
+  .nuancier i{ width: 26px; height: 26px; }
+  .regle{ height: 16px; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .nuancier i:hover{ transform: none; }
+}

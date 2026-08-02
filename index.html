@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HOME | Portfom</title>
+<meta name="description" content="Portfolio de Marlon Mpoko Nkote — étudiant en BUT Métiers du multimédia et de l'Internet, création graphique et production audiovisuelle.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Poppins:wght@200;300;400;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="cinema">
+
+<a class="skip-link" href="#main">Aller au contenu principal</a>
+
+<!-- Texture + fil de progression (purement décoratifs) -->
+<div class="grain" aria-hidden="true"></div>
+<div class="cine" aria-hidden="true">
+  <div class="cine__plan"></div>
+  <div class="cine__plan"></div>
+  <div class="cine__brume"></div>
+  <div class="cine__halation"></div>
+  <div class="cine__scrim"></div>
+  <div class="cine__vignette"></div>
+</div>
+<div class="progress" aria-hidden="true"><span class="progress__bar"></span></div>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <nav class="nav" aria-label="Navigation principale">
+    <a class="nav__brand" href="index.html" aria-current="page">Accueil</a>
+    <ul class="nav__list">
+      <li><a href="audiovisuel.html">Audiovisuel</a></li>
+      <li><a href="projets.html">Projets</a></li>
+      <li><a href="creations.html">Créations</a></li>
+      <li><a href="stage.html">Stage</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <p class="hero__caption reveal">Portfolio <span>—</span> 2026</p>
+
+    <h1 class="hero__name">
+      <span class="reveal reveal--wipe">MARLON</span>
+      <span class="reveal reveal--wipe" data-delay="1">MPOKO NKOTE</span>
+    </h1>
+
+    <hr class="rule reveal reveal--rule" data-delay="2">
+
+    <p class="hero__tagline reveal" data-delay="3">
+      Étudiant en Master Création et Expérience Numériques à l'université Paris&nbsp;8,
+      avec un attrait particulier pour la vidéo.
+    </p>
+
+    <p class="hero__tagline hero__tagline--fort reveal" data-delay="4">
+      Je recherche une <em>alternance pour septembre&nbsp;2026</em> comme monteur vidéo
+      ou monteur&#8209;cadreur, et plus largement sur tout poste touchant à l'audiovisuel.
+    </p>
+
+    <p class="hero__scroll reveal" data-delay="5" aria-hidden="true">Défiler</p>
+  </section>
+
+  <!-- ============ PROJETS RÉCENTS — les réalisations audiovisuelles ============ -->
+  <section class="projects" id="projets" data-plan="assets/img/cine/ciel-braise.webp" data-froid="#228866" data-sommaire="Projets" data-teinte="#f35e07">
+    <div class="sec-meta reveal">
+      <span class="sec-meta__num">001</span>
+      <span class="sec-meta__cat">À la une</span>
+    </div>
+    <hr class="rule reveal reveal--rule">
+
+    <h2 class="section-title section-title--xl section-title--center reveal reveal--wipe">PROJETS RÉCENTS</h2>
+
+    <div class="projects__row projects__row--bobine">
+      <article class="project">
+        <a class="project__media reveal reveal--up" href="audiovisuel.html#professionnel" aria-label="Vidéo Concours construction durable">
+          <img src="assets/img/video/concours-construction.jpg" alt="Concours construction durable" loading="lazy">
+        </a>
+        <div class="project__meta reveal">
+          <a class="project__name" href="audiovisuel.html#professionnel"><span class="project__idx">01</span>CONCOURS CONSTRUCTION DURABLE</a>
+          <a class="project__year" href="audiovisuel.html#professionnel">Professionnel</a>
+        </div>
+      </article>
+
+      <article class="project">
+        <a class="project__media reveal reveal--up" data-delay="1" href="audiovisuel.html#association" aria-label="Vidéo Se retrouver">
+          <img src="assets/img/video/cec-12-juillet.jpg" alt="Se retrouver" loading="lazy">
+        </a>
+        <div class="project__meta reveal" data-delay="1">
+          <a class="project__name" href="audiovisuel.html#association"><span class="project__idx">02</span>SE RETROUVER</a>
+          <a class="project__year" href="audiovisuel.html#association">Association</a>
+        </div>
+      </article>
+
+      <article class="project">
+        <a class="project__media reveal reveal--up" data-delay="2" href="audiovisuel.html#lifestyle" aria-label="Vidéo ZCB — Vlog #1">
+          <img src="assets/img/video/zcb-vlog.jpg" alt="ZCB — Vlog #1" loading="lazy">
+        </a>
+        <div class="project__meta reveal" data-delay="2">
+          <a class="project__name" href="audiovisuel.html#lifestyle"><span class="project__idx">03</span>ZCB — VLOG&nbsp;#1</a>
+          <a class="project__year" href="audiovisuel.html#lifestyle">Lifestyle</a>
+        </div>
+      </article>
+
+      <article class="project">
+        <a class="project__media reveal reveal--up" data-delay="3" href="audiovisuel.html#projet-etudes" aria-label="Court-métrage Les Déracinés">
+          <img src="assets/img/video/deracines.jpg" alt="Les Déracinés" loading="lazy">
+        </a>
+        <div class="project__meta reveal" data-delay="3">
+          <a class="project__name" href="audiovisuel.html#projet-etudes"><span class="project__idx">04</span>LES DÉRACINÉS</a>
+          <a class="project__year" href="audiovisuel.html#projet-etudes">Projet d'études</a>
+        </div>
+      </article>
+    </div>
+
+    <p class="projects__lien reveal">
+      <a href="audiovisuel.html">Voir les 13 vidéos <span aria-hidden="true">↗</span></a>
+    </p>
+  </section>
+
+  <!-- ============ A PROPOS ============ -->
+  <section class="about" id="apropos" data-plan="assets/img/cine/heure-bleue.webp" data-froid="#446688" data-sommaire="Profil" data-teinte="#d7ad43">
+    <div class="sec-meta reveal">
+      <span class="sec-meta__num">002</span>
+      <span class="sec-meta__cat">Profil</span>
+    </div>
+    <hr class="rule reveal reveal--rule">
+
+    <h2 class="section-title section-title--xl section-title--center reveal reveal--wipe">A PROPOS DE MOI</h2>
+
+    <figure class="scrap reveal">
+      <div class="scrap__carte">
+        <span class="scrap__ruban scrap__ruban--haut" aria-hidden="true"></span>
+        <span class="scrap__ruban scrap__ruban--bas" aria-hidden="true"></span>
+        <div class="scrap__vue">
+          <img class="scrap__photo" src="assets/img/portrait-diplome.webp"
+               alt="Marlon Mpoko Nkote en toge le jour de la remise des diplômes, montrant sa licence professionnelle"
+               width="1100" height="1114" loading="lazy">
+        </div>
+      </div>
+    </figure>
+
+    <p class="about__statement reveal reveal--wipe">
+      JE SUIS UN ÉTUDIANT INTÉRESSÉ PAR LA CRÉATION GRAPHIQUE ET LA PRODUCTION AUDIOVISUELLE,
+      SOUHAITANT ÉVOLUER DANS CE DOMAINE POUR DÉVELOPPER PLEINEMENT MON POTENTIEL.
+    </p>
+
+    <div class="about__text reveal">
+      <p>Je m'appelle Marlon Mpoko Nkote, j'ai 22 ans et je réside en banlieue parisienne, plus précisément dans la ville de Ris-Orangis. Actuellement, je suis étudiant en deuxième année de Master Création et Expérience Numériques de la mention Humanités Numériques</p>
+      <p>Cette formation me permet de développer des compétences dans divers domaines, la création numérique, l'audiovisuel, la communication et le développement web.</p>
+      <p>En ce qui concerne mes centres d'intérêt personnels, j'apprécie beaucoup le football, un sport que j'ai pratiqué dans ma jeunesse, et que je continue à pratiquer de manière occasionnelle, et les mangas/films d'animation japonais que je regarde depuis mon enfance.</p>
+    </div>
+  </section>
+
+  <!-- ============ ENSEIGNE & SCOLARITÉ ============ -->
+  <section class="schools" id="scolarite" data-plan="assets/img/cine/lumiere-emeraude.webp" data-froid="#004444" data-sommaire="Parcours" data-teinte="#aaaa88">
+    <div class="sec-meta reveal">
+      <span class="sec-meta__num">003</span>
+      <span class="sec-meta__cat">Parcours</span>
+    </div>
+    <hr class="rule reveal reveal--rule">
+
+    <h2 class="section-title section-title--xl section-title--center reveal reveal--wipe">ENSEIGNE &amp; Scolarité</h2>
+
+    <ul class="schools__row reveal">
+      <li><img src="assets/img/logo-paris8.png" alt="Université Paris 8 Vincennes-Saint-Denis" loading="lazy"></li>
+      <li><img src="assets/img/logo-sion.png" alt="Lycée Notre-Dame de Sion" loading="lazy"></li>
+      <li><img src="assets/img/logo-iut.png" alt="IUT Sénart-Fontainebleau" loading="lazy"></li>
+      <li><img src="assets/img/logo-cmq-construction.png" alt="Campus des métiers et des qualifications — Construction" loading="lazy"></li>
+      <li><img src="assets/img/logo-cmq-sante.jpg" alt="Campus des métiers et des qualifications — Santé, autonomie, bien vieillir" loading="lazy"></li>
+    </ul>
+  </section>
+
+  <!-- ============ COMPÉTENCES ============ -->
+  <section class="skills" id="creations" data-plan="assets/img/cine/lumiere-emeraude.webp" data-froid="#004444" data-sommaire="Compétences" data-teinte="#228866">
+    <div class="sec-meta reveal">
+      <span class="sec-meta__num">004</span>
+      <span class="sec-meta__cat">Savoir-faire</span>
+    </div>
+    <hr class="rule reveal reveal--rule">
+
+    <h2 class="section-title section-title--xl reveal reveal--wipe">MES<br>COMPÉTENCES</h2>
+
+    <div class="skills__grid">
+      <article class="card reveal">
+        <h3 class="card__title">COMMUNICATION</h3>
+        <p class="card__text">Lors de projets de groupe, nous avons effectué l'ensemble de la communication d'un projet, impliquant la conception d'une stratégie de communication, la réalisation d'un benchmark, ainsi que l'audit de communication.</p>
+      </article>
+
+      <article class="card reveal" data-delay="1">
+        <h3 class="card__title">AUDIOVISIUEL</h3>
+        <p class="card__text">Au fil de ma formation, j'ai développé mes compétences en montage vidéo et audio sur le logiciel d'Adobe Premiere Pro..</p>
+      </article>
+
+      <article class="card reveal" data-delay="2">
+        <h3 class="card__title">3D</h3>
+        <p class="card__text">J'ai réalisé plusieurs projets en 3D sur différents logiciels, ce qui m'a permis de développer mes compétences dans ce domaine.</p>
+      </article>
+
+      <article class="card card--wide reveal">
+        <h3 class="card__title">MOTION DESIGN</h3>
+        <p class="card__text">Au cours de ma formation, j'ai effectué plusieurs travaux qui ont contribué au développement de mes compétences sur la suite Adobe. Ces projets m'ont également offert l'opportunité d'explorer davantage ma créativité.</p>
+      </article>
+
+      <article class="card card--wide reveal" data-delay="1">
+        <h3 class="card__title">WEB</h3>
+        <p class="card__text">Au fil de ma formation, j'ai mené différents projets qui ont été déterminants pour l'élargissement de mes compétences en développement. Plus particulièrement, j'ai acquis des compétences dans la création de sites web en utilisant des langages tels que HTML/CSS sur Visual Studio Code.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ EXPÉRIENCE ============ -->
+  <section class="experience" id="stage" data-plan="assets/img/cine/heure-bleue.webp" data-froid="#664444" data-sommaire="Expérience" data-teinte="#446688">
+    <div class="sec-side">
+      <div class="sec-meta reveal">
+        <span class="sec-meta__num">005</span>
+        <span class="sec-meta__cat">Terrain</span>
+      </div>
+      <h2 class="section-title section-title--lg reveal reveal--wipe">EXPERIENCE</h2>
+    </div>
+
+    <div class="experience__list">
+      <article class="job reveal">
+        <h3 class="job__company">CAMPUS DES METIERS ET DES QUALIFICATIONS D 'EXELLENCE</h3>
+        <div class="job__head">
+          <span class="job__role">CHARGE DE COMMUNICATION</span>
+          <span class="job__date">AVRIL 2025 - JUILLET 2025</span>
+        </div>
+        <ul class="job__tasks">
+          <li>Conception de contenus pour les résaux sociaux, sites internet et documents print des Campus.</li>
+          <li>Support à l'animation et l'organisation d'événements</li>
+          <li>Production et montage de vidéos pour la promotion des activités estudiantines/ réalisation et montage d'interviews</li>
+        </ul>
+      </article>
+
+      <article class="job reveal">
+        <h3 class="job__company">LA POSTE</h3>
+        <div class="job__head">
+          <span class="job__role">AGENT DE TRI</span>
+          <span class="job__date">AOUT - SEPTEMBRE 2024 (2MOIS)</span>
+        </div>
+        <ul class="job__tasks">
+          <li>Tri et classement des courriers, contrôle de la qualité des courriers</li>
+        </ul>
+      </article>
+
+      <article class="job reveal">
+        <h3 class="job__company">CAMPUS DES METIERS ET DES QUALIFICATIONS D 'EXELLENCE</h3>
+        <div class="job__head">
+          <span class="job__role">CHARGE DE COMMUNICATION</span>
+          <span class="job__date">MARS - JUILLET (5 MOIS)</span>
+        </div>
+        <ul class="job__tasks">
+          <li>Conception de contenus pour les résaux sociaux, sites internet et documents print des Campus.</li>
+          <li>Support à l'animation et l'organisation d'événements</li>
+          <li>Production et montage de vidéos pour la promotion des activités estudiantines/ réalisation et montage d'interviews</li>
+        </ul>
+      </article>
+
+      <article class="job reveal">
+        <h3 class="job__company">UPS</h3>
+        <div class="job__head">
+          <span class="job__role">AGENT DE QUAI</span>
+          <span class="job__date">JUILLET 2023(1MOIS)</span>
+        </div>
+        <ul class="job__tasks">
+          <li>Tri et classement des courriers, contrôle de la qualité des courriers</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ LOGICIELS ============ -->
+  <section class="software" id="logiciels" data-plan="assets/img/cine/ciel-braise.webp" data-froid="#228866" data-sommaire="Logiciels" data-teinte="#eeaa22">
+    <div class="sec-meta reveal">
+      <span class="sec-meta__num">006</span>
+      <span class="sec-meta__cat">Outils</span>
+    </div>
+    <hr class="rule reveal reveal--rule">
+
+    <h2 class="section-title section-title--lg reveal reveal--wipe">LOGICIELS<br>UTILISÉS</h2>
+
+    <div class="software__grid">
+      <article class="soft reveal">
+        <h3 class="soft__name">PREMIERE PRO</h3>
+        <div class="soft__row">
+          <img src="assets/img/premiere.png" alt="Adobe Premiere Pro" loading="lazy">
+          <span class="soft__level" data-value="60">60%</span>
+        </div>
+        <span class="soft__gauge" aria-hidden="true"><i style="--w:60%"></i></span>
+      </article>
+
+      <article class="soft reveal" data-delay="1">
+        <h3 class="soft__name">PHOTOSHOP</h3>
+        <div class="soft__row">
+          <img src="assets/img/photoshop.png" alt="Adobe Photoshop" loading="lazy">
+          <span class="soft__level" data-value="40">40%</span>
+        </div>
+        <span class="soft__gauge" aria-hidden="true"><i style="--w:40%"></i></span>
+      </article>
+
+      <article class="soft reveal" data-delay="2">
+        <h3 class="soft__name">ILLUSTRATOR</h3>
+        <div class="soft__row">
+          <img src="assets/img/illustrator.png" alt="Adobe Illustrator" loading="lazy">
+          <span class="soft__level" data-value="60">60%</span>
+        </div>
+        <span class="soft__gauge" aria-hidden="true"><i style="--w:60%"></i></span>
+      </article>
+
+      <article class="soft reveal">
+        <h3 class="soft__name">AFTER EFFECT</h3>
+        <div class="soft__row">
+          <img src="assets/img/after-effects.png" alt="Adobe After Effects" class="soft__icon--tall" loading="lazy">
+          <span class="soft__level" data-value="50">50%</span>
+        </div>
+        <span class="soft__gauge" aria-hidden="true"><i style="--w:50%"></i></span>
+      </article>
+
+      <article class="soft reveal" data-delay="1">
+        <h3 class="soft__name">FIGMA</h3>
+        <div class="soft__row">
+          <img src="assets/img/figma.png" alt="Figma" loading="lazy">
+          <span class="soft__level" data-value="30">30%</span>
+        </div>
+        <span class="soft__gauge" aria-hidden="true"><i style="--w:30%"></i></span>
+      </article>
+
+      <article class="soft reveal" data-delay="2">
+        <h3 class="soft__name">BLENDER</h3>
+        <div class="soft__row">
+          <img src="assets/img/blender.png" alt="Blender" loading="lazy">
+          <span class="soft__level" data-value="40">40%</span>
+        </div>
+        <span class="soft__gauge" aria-hidden="true"><i style="--w:40%"></i></span>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ DIPLÔMES ============ -->
+  <section class="diplomas" id="diplomes" data-plan="assets/img/cine/crepuscule.webp" data-froid="#886666" data-sommaire="Diplômes" data-teinte="#aa4422">
+    <div class="sec-side">
+      <div class="sec-meta reveal">
+        <span class="sec-meta__num">007</span>
+        <span class="sec-meta__cat">Formation</span>
+      </div>
+      <h2 class="section-title section-title--lg reveal reveal--wipe">DIPLOMES</h2>
+    </div>
+
+    <div class="diplomas__list">
+      <article class="diploma reveal">
+        <h3 class="diploma__title">
+          MASTER CRÉATION ET EXPÉRIENCE NUMÉRIQUES<br>
+          MENTION HUMANITÉS NUMÉRIQUES
+        </h3>
+        <div class="diploma__foot">
+          <span class="diploma__school">UNIVERSITÉ PARIS 8 — VINCENNES-SAINT-DENIS</span>
+          <span class="diploma__date">2025 — En cours</span>
+        </div>
+      </article>
+
+      <article class="diploma reveal">
+        <h3 class="diploma__title">
+          BUT MÉTIERS DU MULTIMÉDIA ET DU L INTERNET<br>
+          PARCOURS CRÉATION NUMÉRIQUE (MMI)
+        </h3>
+        <div class="diploma__foot">
+          <span class="diploma__school">I.U.T. SENART FONTAINEBLEAU - MOISSY CRAMAYEL</span>
+          <span class="diploma__date">2022 - 2025</span>
+        </div>
+      </article>
+
+      <article class="diploma reveal">
+        <h3 class="diploma__title">
+          BACCALAURÉAT SCIENCE TECHNOLOGIQUE DU MANAGEMENT ET DE LA GESTION (STMG)
+        </h3>
+        <div class="diploma__foot">
+          <span class="diploma__school">LYCEE NOTRE DAME DE SION - EVRY</span>
+          <span class="diploma__date">2020 - 2022</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ BANDEAU TYPOGRAPHIQUE ============ -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>Création numérique — Audiovisuel — Motion design — Communication —&nbsp;</span>
+      <span>Création numérique — Audiovisuel — Motion design — Communication —&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="contact" id="contact" data-plan="assets/img/cine/ciel-braise.webp" data-froid="#228866" data-sommaire="Contact" data-teinte="#f35e07">
+    <div class="sec-meta sec-meta--center reveal">
+      <span class="sec-meta__num">008</span>
+      <span class="sec-meta__cat">Contact</span>
+    </div>
+
+    <h2 class="contact__title reveal reveal--wipe"><a href="contact.html">CONTACTEZ-MOI !</a></h2>
+    <a class="contact__mail reveal" data-delay="1" href="mailto:marlonmpoko@gmail.com">marlonmpoko@gmail.com</a>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <p class="site-footer__name">MPOKO NKOTE</p>
+  <div class="site-footer__bar">
+    <span>@ MPOKO NKOTE 2026 DESIGN</span>
+    <a href="https://www.linkedin.com/in/marlon-mpoko-nkote-088b88265/" target="_blank" rel="noopener">LINKEDIN</a>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/sommaire.js"></script>
+<script src="js/ambiance.js"></script>
+<script src="js/toile.js"></script>
+</body>
+</html>
