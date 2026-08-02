@@ -108,7 +108,12 @@
     /* le champ dérive lentement, et le défilement l\'emporte.
        L\'échelle décide de tout : trop large, on ne voit qu\'une tache ;
        à 2.6 on lit les volutes, leurs bords et leurs filaments. */
-    '  vec2 base = p * 2.6 + vec2(t * 0.014, -uScroll * 1.15 + t * 0.022);',
+    /* L\'influence du défilement reste faible — 0,45 et non 1,15.
+       La toile n\'est repeinte qu\'à 32 images par seconde alors que la
+       page défile à 60 : plus le fond suit le défilement, plus ce
+       décalage se lit comme un saccadement, même quand la page tient
+       ses 60 fps. Une dérive discrète et lissée passe inaperçue. */
+    '  vec2 base = p * 2.6 + vec2(t * 0.014, -uScroll * 0.45 + t * 0.022);',
 
     /* dispersion chromatique : le rouge et le bleu ne traversent pas
        la lentille au même endroit, l\'écart croît vers les bords */
@@ -411,8 +416,14 @@
     rejoindre(froid, froidCible, 0.02);
     eclat = eclatDe(chaud);
 
+    /* Le défilement n'est pas transmis brut mais rejoint en douceur.
+       Entre deux images peintes, la page a pu descendre de plusieurs
+       centaines de pixels : appliquer ce saut d'un coup fait bondir le
+       décor. En le rattrapant par cinquièmes, la dérive reste continue
+       quelle que soit la vitesse du défilement. */
     var h = document.documentElement.scrollHeight - window.innerHeight;
-    defile = h > 0 ? window.scrollY / h : 0;
+    var cible = h > 0 ? window.scrollY / h : 0;
+    defile += (cible - defile) * 0.2;
 
     gl.uniform1f(uTime, (maintenant - depart) / 1000);
     gl.uniform1f(uScroll, defile);
