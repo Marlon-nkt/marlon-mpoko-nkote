@@ -1067,12 +1067,13 @@ figure{ margin: 0; }
   padding-left: clamp(0rem, 3vw, 2.75rem);
 }
 
+/* Le pourcentage et la jauge ont disparu : l'icône n'a plus de
+   voisin à qui céder la moitié de la rangée, elle se centre. */
 .soft__row{
   flex: 1;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
+  justify-content: center;
 }
 /* Non cliquables : couleur permanente. */
 .soft__row img{
@@ -1081,32 +1082,6 @@ figure{ margin: 0; }
   object-fit: contain;
 }
 .soft__row .soft__icon--tall{ height: clamp(84px, 13.6vw, 174px); }
-
-.soft__level{
-  font-family: var(--display);
-  font-weight: 700;
-  font-size: clamp(1.25rem, 2vw, 1.875rem);
-  line-height: 1;
-  font-variant-numeric: tabular-nums;
-}
-
-/* Jauge : un simple filet qui se trace jusqu'au niveau annoncé */
-.soft__gauge{
-  display: block;
-  height: 1px;
-  background: var(--line);
-  margin-top: auto;
-}
-.soft__gauge i{
-  display: block;
-  width: var(--w, 0%);
-  height: 100%;
-  background: var(--white);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 1.4s var(--ease) .25s;
-}
-.soft.is-visible .soft__gauge i{ transform: scaleX(1); }
 
 /* =========================================================
    DIPLÔMES

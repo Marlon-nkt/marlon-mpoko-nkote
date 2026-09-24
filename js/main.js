@@ -24,11 +24,6 @@
 
     var index = pending.indexOf(el);
     if (index > -1) pending.splice(index, 1);
-
-    /* Les compteurs sont liés à la révélation de leur carte : pas
-       d'observer séparé, donc pas de désynchronisation possible. */
-    var level = el.classList.contains('soft') ? el.querySelector('.soft__level') : null;
-    if (level) countUp(level);
   }
 
   function showAll() {
@@ -61,36 +56,6 @@
     revealables.forEach(function (el) { observer.observe(el); });
   } else {
     checkPending();
-  }
-
-  /* ---------- Compteurs des niveaux logiciels ---------- */
-  document.querySelectorAll('.soft__level[data-value]').forEach(function (el) {
-    if (!reduceMotion) el.textContent = '0%';
-  });
-
-  function countUp(el) {
-    if (el.dataset.counted) return;
-    el.dataset.counted = 'true';
-
-    var target = parseInt(el.dataset.value, 10) || 0;
-
-    if (reduceMotion) {
-      el.textContent = target + '%';
-      return;
-    }
-
-    var duration = 1200;
-    var start = null;
-
-    function step(timestamp) {
-      if (start === null) start = timestamp;
-      var progress = Math.min((timestamp - start) / duration, 1);
-      var eased = 1 - Math.pow(1 - progress, 3);
-      el.textContent = Math.round(eased * target) + '%';
-      if (progress < 1) requestAnimationFrame(step);
-    }
-
-    requestAnimationFrame(step);
   }
 
   /* =========================================================
