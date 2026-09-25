@@ -1075,13 +1075,17 @@ figure{ margin: 0; }
   align-items: center;
   justify-content: center;
 }
-/* Non cliquables : couleur permanente. */
+/* Non cliquables : couleur permanente.
+   Cadre carré et non hauteur libre : les marques n'ont pas toutes les
+   mêmes proportions — celle de CapCut est une fois et demie plus large
+   que haute — et à hauteur égale la plus allongée écrasait les autres.
+   En les inscrivant toutes dans le même carré, c'est l'encombrement
+   qui s'aligne, quelle que soit la forme. */
 .soft__row img{
-  width: auto;
+  width: clamp(64px, 8.3vw, 107px);
   height: clamp(64px, 8.3vw, 107px);
   object-fit: contain;
 }
-.soft__row .soft__icon--tall{ height: clamp(84px, 13.6vw, 174px); }
 
 /* =========================================================
    DIPLÔMES
