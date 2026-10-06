@@ -982,11 +982,14 @@ figure{ margin: 0; }
 .job__head{
   margin-top: clamp(1rem, 1.8vw, 1.75rem);
   display: flex;
-  flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
   gap: .5rem 1.5rem;
 }
+/* un intitulé long revient à la ligne dans sa colonne
+   plutôt que de chasser la date sous lui : elle reste à droite */
+.job__role{ flex: 1 1 auto; min-width: 0; }
+.job__date{ flex: none; text-align: right; }
 
 .job__role,
 .job__date{
@@ -2106,6 +2109,7 @@ body.theme--encre .grain{ opacity: .035; }
 
   .job__head,
   .diploma__foot{ flex-direction: column; align-items: flex-start; }
+  .job__date{ text-align: left; }
 
   .tiles{ grid-template-columns: 1fr; }
   .tile img,
