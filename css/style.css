@@ -619,20 +619,22 @@ figure{ margin: 0; }
    d'origine. La bande large des projets (3,34:1) convient à un logo
    posé sur son fond, jamais à un photogramme — elle couperait les
    têtes. Le 16/9 est le seul cadre honnête pour de la vidéo. */
+/* Six demi-colonnes, chaque carte en prend deux : trois par rangée,
+   et les deux de la seconde rangée peuvent se caler d'une demi-colonne
+   pour rester centrées, en écho au titre de section. */
 .projects__row--bobine{
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   row-gap: clamp(1.75rem, 3.5vw, 2.75rem);
 }
+.projects__row--bobine .project{ grid-column: span 2; }
 .projects__row--bobine .project__media img{ aspect-ratio: 16 / 9; }
-
-/* La quatrième passe sur une seconde rangée, calée sur la colonne
-   du milieu : seule à gauche d'une rangée vide, elle aurait l'air
-   orpheline. Centrée, elle répond au titre de section, lui aussi centré. */
-.projects__row--bobine .project:nth-child(4){ grid-column: 2; }
+.projects__row--bobine .project:nth-child(4){ grid-column: 2 / span 2; }
 
 @media (max-width: 1100px){
-  .projects__row--bobine{ grid-template-columns: repeat(2, 1fr); }
-  .projects__row--bobine .project:nth-child(4){ grid-column: auto; }
+  /* deux par rangée ; la cinquième, seule, se centre */
+  .projects__row--bobine{ grid-template-columns: repeat(4, 1fr); }
+  .projects__row--bobine .project:nth-child(4){ grid-column: span 2; }
+  .projects__row--bobine .project:nth-child(5){ grid-column: 2 / span 2; }
 }
 
 /* le renvoi vers la bobine complète, sous la rangée */
@@ -2086,6 +2088,7 @@ body.theme--encre .grain{ opacity: .035; }
   /* la rangée de vidéos a sa propre règle, plus spécifique : il faut
      la neutraliser ici, sinon trois colonnes minuscules sur téléphone */
   .projects__row--bobine{ grid-template-columns: 1fr; }
+  .projects__row--bobine .project:nth-child(n){ grid-column: auto; }
   .project__media img{ aspect-ratio: 16 / 10; }
   .project--wide .project__media img{ aspect-ratio: 16 / 9; }
 
