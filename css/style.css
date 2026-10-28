@@ -661,6 +661,28 @@ figure{ margin: 0; }
 /* variante pour les pages intérieures : l'en-tête de page fournit déjà l'espace haut */
 .projects--flush{ padding-top: 0; }
 
+/* page Création visuelle : un intertitre au-dessus de chaque bloc (projets, disciplines) */
+.crea-sous{
+  max-width: 1440px;
+  margin-inline: auto;
+  padding: clamp(1rem, 3vw, 2rem) var(--gutter) clamp(1.5rem, 3vw, 2.5rem);
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+.crea-sous::after{
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(251,255,254,.18);
+}
+.crea-sous__titre{
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(1.4rem, 3vw, 2.4rem);
+  letter-spacing: -0.01em;
+}
+
 .projects__row{
   display: grid;
   grid-template-columns: repeat(2, 1fr);

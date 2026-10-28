@@ -497,6 +497,75 @@
   color: var(--faint);
 }
 
+/* ---------- Sélection : chaque vidéo phare dit sa demande, mon rôle, son format ---------- */
+.vid__ctx{
+  display: grid;
+  gap: .55rem;
+  margin-top: .2rem;
+  padding-top: .75rem;
+  border-top: 1px solid rgba(251,255,254,.14);
+}
+.vid__ctx > div{
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  gap: .75rem;
+  align-items: baseline;
+}
+.vid__ctx dt{
+  font-family: var(--mono);
+  font-size: .625rem;
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  color: var(--faint);
+}
+.vid__ctx dd{
+  margin: 0;
+  font-family: var(--body);
+  font-weight: 300;
+  font-size: .875rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+.vid__ctx a{ color: var(--white); text-decoration: underline; text-underline-offset: .2em; }
+@media (max-width: 480px){
+  .vid__ctx > div{ grid-template-columns: 1fr; gap: .15rem; }
+}
+
+/* ---------- Archives : le reste de la bobine, replié par défaut ---------- */
+.archives__bouton{
+  display: inline-flex;
+  align-items: center;
+  gap: .8em;
+  padding: .85em 1.6em;
+  border: 1px solid rgba(251,255,254,.45);
+  border-radius: 999px;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: .9rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  list-style: none;
+  transition: background .3s var(--ease), color .3s var(--ease);
+}
+.archives__bouton::-webkit-details-marker{ display: none; }
+.archives__bouton::after{ content: "+"; font-weight: 400; font-size: 1.2em; line-height: 1; }
+.archives[open] .archives__bouton::after{ content: "−"; }
+.archives__bouton:hover,
+.archives__bouton:focus-visible{ background: var(--white); color: #0a0a0a; }
+.archives[open] .archives__bouton{ margin-bottom: clamp(1.5rem, 3vw, 2.5rem); }
+
+.archives__rubrique{
+  margin: clamp(1.75rem, 3.5vw, 2.75rem) 0 1.1rem;
+  font-family: var(--mono);
+  font-size: .7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  color: var(--faint);
+}
+.archives .reel-grid{ grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+
 /* ---------- Lien de sortie ---------- */
 .av .contact-row__label,
 .av .clip__tc{ font-family: var(--mono); }
