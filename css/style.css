@@ -650,35 +650,6 @@ figure{ margin: 0; }
 /* =========================================================
    PROJETS
    ========================================================= */
-/* ---------- Showreel : la bande démo, première chose montrée ---------- */
-.reel{
-  max-width: 1440px;
-  margin-inline: auto;
-  padding: clamp(3rem, 6vw, 5rem) var(--gutter) clamp(1rem, 3vw, 2rem);
-}
-.reel .section-title{ margin-bottom: clamp(2rem, 4.5vw, 3.5rem); }
-.reel__cadre{
-  max-width: 1200px;
-  margin: 0 auto;
-  background: #000;
-  box-shadow: 0 30px 80px -30px rgba(0,0,0,.8), 0 0 0 1px rgba(251,255,254,.12);
-}
-.reel__video{
-  display: block;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  background: #000;
-}
-.reel__legende{
-  margin-top: 1rem;
-  text-align: center;
-  font-family: var(--mono);
-  font-size: .7rem;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
 .projects{
   max-width: 1440px;
   margin-inline: auto;
