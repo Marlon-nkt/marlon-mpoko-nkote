@@ -199,6 +199,32 @@
     });
   });
 
+  /* ---------- Showreel : joue en boucle, muet, seulement à l'écran ----------
+     preload="none" : rien n'est téléchargé tant qu'on n'approche pas.
+     Hors champ, la vidéo se met en pause pour ne pas grever le fond animé. */
+  var reel = document.querySelector('.reel__video');
+  if (reel && !reduceMotion && 'IntersectionObserver' in window) {
+    var pauseAuto = false;   /* l'évènement pause arrive après coup : on marque les nôtres */
+    reel.addEventListener('pause', function () {
+      if (pauseAuto) { pauseAuto = false; return; }
+      reel.dataset.manuel = '1';                       /* le visiteur l'a arrêtée : on respecte */
+    });
+    reel.addEventListener('play', function () { delete reel.dataset.manuel; });
+
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          if (reel.dataset.manuel) return;
+          var p = reel.play();
+          if (p && p.catch) p.catch(function () {});
+        } else if (!reel.paused) {
+          pauseAuto = true;
+          reel.pause();
+        }
+      });
+    }, { threshold: 0.35 }).observe(reel);
+  }
+
   /* ---------- Fil de progression + filet sous le header ---------- */
   var bar = document.querySelector('.progress__bar');
   var header = document.querySelector('.site-header');
